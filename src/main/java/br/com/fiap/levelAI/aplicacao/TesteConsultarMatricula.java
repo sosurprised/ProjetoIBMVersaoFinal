@@ -1,6 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
 
 import br.com.fiap.levelAI.beans.Matricula;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.MatriculaDAO;
 
 public class TesteConsultarMatricula {
@@ -17,10 +18,9 @@ public class TesteConsultarMatricula {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			dao.fechar();			
-						
-	}
+		} finally {
+			Conexao.fechar();
+		}
 
 	}
 

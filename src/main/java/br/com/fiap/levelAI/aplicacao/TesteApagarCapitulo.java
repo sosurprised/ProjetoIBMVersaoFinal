@@ -1,5 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
+
 import br.com.fiap.levelAI.beans.Capitulo;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.CapituloDAO;
 
 public class TesteApagarCapitulo {
@@ -13,12 +15,12 @@ public class TesteApagarCapitulo {
 			System.out.println("Disciplina.............:" + a.getDisciplinaCapitulo());
 			System.out.println("Titulo.................:" + a.getTitulo());
 			System.out.println("Conteudo...............:" + a.getConteudo());
-			System.out.println(dao.apagarCapitulo(12));
+			System.out.println(dao.deleteCapitulo(12));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

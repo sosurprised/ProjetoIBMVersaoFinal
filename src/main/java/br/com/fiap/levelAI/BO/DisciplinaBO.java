@@ -2,15 +2,29 @@ package br.com.fiap.levelAI.BO;
 
 import br.com.fiap.levelAI.DAO.DisciplinaDAO;
 import br.com.fiap.levelAI.beans.Disciplina;
-import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.excecao.InvalidValue;
 
+/**
+ * Esta classe tem como finalidade validar as Disciplinas do LevelAi
+ * @author patricia
+ *@author Nadia
+ */
 public class DisciplinaBO {
 
     /*
     VERIFICAR STATUS, NAO SEI COMO TRATAR
      */
 
+	/**
+	 * Este metodo tem como finalidade validar uma nova disciplina
+	 * 
+	 * @author patricia
+	 * @author Nadia
+	 * @param objDisciplina - recebe um objeto do tipo disciplina
+	 * @throws Exception    - é lançado quando acontecer uma exceção
+	 * @throws InvalidValue - é lançado quando o valor dos atributos verificados
+	 *                      pelo método tiver um valor inválido
+	 */
     public void novaDisciplina(Disciplina objDisciplina) throws Exception {
         DisciplinaDAO dao = null;
         try {
@@ -42,7 +56,7 @@ public class DisciplinaBO {
         } catch (InvalidValue i) {
             System.out.println(i.getMessage());
         } finally {
-			Conexao.fechar();
+            dao.fechar();
         }
 
     }
