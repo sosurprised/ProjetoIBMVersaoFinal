@@ -1,7 +1,8 @@
 package br.com.fiap.levelAI.aplicacao;
 
-import br.com.fiap.levelAI.beans.Aluno;
 import br.com.fiap.levelAI.DAO.AlunoDAO;
+import br.com.fiap.levelAI.beans.Aluno;
+import br.com.fiap.levelAI.conexao.Conexao;
 
 public class TesteConsultaAluno {
 
@@ -21,7 +22,7 @@ public class TesteConsultaAluno {
 			e.printStackTrace();
 		}finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}			
