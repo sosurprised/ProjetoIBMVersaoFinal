@@ -31,24 +31,24 @@ public class AdminBO {
 		try {
 			objAdmin.setNome(objAdmin.getNome().toUpperCase());
 			if (objAdmin.getNome().length() <= 0 || objAdmin.getNome().length() > 60) {
-				throw new InvalidValue("Nome inv�lido");
+				throw new InvalidValue("Nome invalido");
 			}
 			objAdmin.setEmail(objAdmin.getEmail().toUpperCase());
 			if (objAdmin.getEmail().length() < 0 || objAdmin.getEmail().length() > 60) {
-				throw new InvalidValue("Email inv�lido");
+				throw new InvalidValue("Email invalido");
 			}
 
 			objAdmin.setSenha(objAdmin.getSenha());
 			if (objAdmin.getSenha().length() <= 0 || objAdmin.getSenha().length() > 15) {
-				throw new InvalidValue("Senha inv�lida");
+				throw new InvalidValue("Senha invalida");
 			}
 
 			Admin adminCodigo = dao.getAdmin(objAdmin.getCodigo());
 			if (adminCodigo.getCodigo() > 0) {
-				throw new InvalidValue("C�digo j� existe");
+				throw new InvalidValue("Codigo ja existe");
 			}
 			if (dao.addAdmin(objAdmin) == 0) {
-				throw new InvalidValue("Admin n�o cadastrado");
+				throw new InvalidValue("Admin nao cadastrado");
 			} else {
 				System.out.println("Admin cadastrado");
 			}
