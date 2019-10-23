@@ -1,0 +1,80 @@
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>FIAP</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Nanum+Gothic|Pacifico" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/fiap.css">
+</head>
+<body>
+    <header>
+        <nav id="superior">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                 <li><a href="cursos.html">Cursos</a></li> 
+                <li><a href="quemsomos.html">Quem Somos</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+            </ul>
+        </nav>
+
+        <h1>LEVEL AI</h1>
+    </header>
+   
+    <main class="form_page account">
+        <form id="form-registrar" name="formulario" class="activate" method = "post" action = "cadastroServlet">
+            <div class="grupo">
+                <label for="nome">Nome:</label>
+                <input id="nome" name="nome" type="text" placeholder="Nome" class="campo" required="required">
+            </div>
+            <div class="grupo">
+                <label  for="codigo">RM:</label>
+                <input id="codigo" name="codigo" type="number"  placeholder="RM" required="required" minlength ="7" maxlength="7">
+            </div>
+            <div class="grupo">
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" placeholder="Digite seu Email" class="campo" required="required">
+            </div>
+            <div class="grupo">
+                <label for="endereco">Endereço:</label>
+                <input id="endereco" name="endereco" type="text" placeholder="Digite seu Endereço" class="campo" required="required">
+            </div>
+            <div class="grupo">
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" name="telefone" type="text" placeholder="(xx)xxxxx-xxxx" class="campo" min ="11" required="required">
+            </div>
+            <div class="grupo">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="text" name="dataNascimento" min="01-01-1920" required="required">
+            </div>
+            <div class="grupo">
+                <label for="senha">Senha:</label>
+                <input id="senha" name="senha" type="password" placeholder="Senha" class="campo campo-medio" required="required">
+            </div>
+            <a class="new_account" id="toggle_activate_1" href="/form.html">Fazer login</a>
+            <button type="submit" id="sign_up" class="botao bto-principal">Cadastrar</button>
+        </form>
+    </main>
+    <footer>
+        <div id="endereco">
+            Av. Paulista, 1000, São Paulo <br>
+            São Paulo  - SP <br>
+            Tel: 11 - 9 6562-5213 | 11 - 9 6562-5235 <br>
+            E-Mail: contatojava@coffee.com
+        </div>
+        <div>
+             <nav id="RedeSocialInferior">
+                 <ul>
+                    <li><a href="http://www.youtube.com"><img src="../img/youtube.png" alt="clique para acessar youtube"></a></li>
+                 </ul>
+             </nav>
+        </div>
+        
+    </footer>
+    <script src="js/form.js"></script>
+</body>
+</html>

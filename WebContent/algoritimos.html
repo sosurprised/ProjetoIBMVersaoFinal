@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FIAP</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Nanum+Gothic|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/fiap.css">
+
+</head>
+<body>
+    <header>
+        <nav id="superior">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="cursos.html">Cursos</a></li> -->
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="quemsomos.html">Quem Somos</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+            </ul>
+        </nav>
+
+        <h1>LEVEL AI</h1>
+    </header>
+   
+    <main>
+        <h2 id="h" class="algoritimo-background">Algoritmos</h2>
+
+        <div id="capitulos" class="capitulosclass">
+        <dt>Capítulo 1
+            <dd>PRINCIPIOS DA PROGRAMAÇÃO</dd>
+        </dt>
+        <dt>Capítulo 2
+            <dd>TOMADA DE DECISÃO</dd>
+        </dt>
+        <dt>Capítulo 3
+            <dd>ESTRUTURA DE REPETIÇÃO</dd>
+        </dt>
+        <dt>Capítulo 4
+            <dd>VETORES E MATRIZES</dd>
+        </dt>
+        <dt>Capítulo 5
+            <dd>ANÁLIZE ALGORÍTIMA</dd>
+        </dt>
+        <dt>Capítulo 6
+            <dd>ORDENAÇÃO DE VETORES</dd>
+        </dt>
+        <dt>Capítulo 7
+            <dd>BUSCA</dd>
+        </dt>
+        </div>
+        <div class="chat" style="display: none;">
+            <p> ChatBot Level AI </p>
+            <button>&otimes;</button>
+            <div class="message-container" id="chat_container">
+            
+            </div>
+            <div class="message-input">
+                <input id="question" type="text" name="question" placeholder="  ----- Olá digite aqui sua pergunta -----"/>
+                <input class="inputlay" id="user_message" type="image" src="img2semestre/enter2.png" onclick="enviarMensagem()" width="24" height="32">
+                <input class="gravar" id="recordButton" type="image" src="img2semestre/microfone2.png" onclick="gravar()" width="24" height="32"/>
+                <input class="parar" id="stopButton" type="image" src="img2semestre/stop2.png" onclick="pararEnviar()" width="24" height="32" style="display:none"/>
+                <span class="message-input-button-scan"></span>
+            </div>
+        </div>
+        <div class="rotate" >
+            <img src="img2semestre/chatbot .png" class="chatbot-img" alt="chatbot icon">
+        </div>
+        <script type="text/javascript">
+            var button = document.querySelector(".chat button");
+            var content = document.querySelector(".rotate");
+            var chat = document.getElementsByClassName("chat")[0];
+    
+            content.addEventListener("click", function(event) {
+                event.preventDefault();
+                content.style.display = "none";
+                chat.style.display = "block";
+                createFirstBotMessage();
+            })
+    
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+                content.style.display = "block";
+                chat.style.display = "none";
+            })
+        </script>
+
+    </main>
+    <footer>
+        <div id="endereco">
+            Av. Paulista, 1000, São Paulo <br>
+            São Paulo  - SP <br>
+            Tel: 11 - 9 6562-5213 | 11 - 9 6562-5235 <br>
+            E-Mail: contatojava@coffee.com
+        </div>
+        <div>
+             <nav id="RedeSocialInferior">
+                 <ul>
+                    <li><a href="http://www.youtube.com"><img src="img/youtube.png" alt="clique para acessar youtube"></a></li>
+                 </ul>
+             </nav>
+        </div>
+        
+    </footer>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="js/scripts.js"></script>
+
+
+</body>
+</html>

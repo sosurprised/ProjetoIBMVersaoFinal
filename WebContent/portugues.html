@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FIAP</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Nanum+Gothic|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="css/fiap.css">
+</head>
+<body>
+    <header>
+        <nav id="superior">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <!-- <li><a href="cursos.html">Cursos</a></li> -->
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="quemsomos.html">Quem Somos</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+            </ul>
+        </nav>
+
+        <h1>LEVEL AI</h1>
+    </header>
+   
+    <main>
+        <h2 id="h">Português</h2>
+
+        <div id="capitulos">
+        <dt>Capitulo 1
+            <dd>COMUNICAÇÃO EMPRESARIAL</dd>
+        </dt>
+        <dt>Capitulo 2
+            <dd>TÉCNICAS DE LEITURA E INTERPRETAÇÃO DE TEXTO</dd>
+        </dt>
+        <dt>Capitulo 3
+            <dd>COESÃO TEXTUAL E A CONSTRUÇÃO DO SENTIMENTO</dd>
+        </dt>
+        <dt>Capitulo 4
+            <dd>COERÊNCIA - A UNIDADE DO TEXTO</dd>
+        </dt>
+        <dt>Capitulo 5
+            <dd>STORYTELLING</dd>
+        </dt>
+        <dt>Capitulo 6
+            <dd>CONCEITO DE STARTUP</dd>
+        </dt>
+        <dt>Capitulo 7
+            <dd>MODELO DE NEGÓCIOS - CANVAS</dd>
+        </dt>
+        <dt>Capitulo 8
+            <dd>O MODERNO TEXTO EMPRASIAL</dd>
+        </dt>
+        <dt>Capitulo 9
+            <dd>CARACTERÍSTICAS DO MODERNO TEXTO EMPRESARIAL</dd>
+        </dt>
+        <dt>Capitulo10
+            <dd>ERROS EMPRESARIAIS COMUNS</dd>
+        </dt>
+        </dt>
+        <dt>Capitulo10
+            <dd>ERROS EMPRESARIAIS COMUNS</dd>
+        </dt>
+        <dt>Capitulo11
+            <dd>TÉCNICAS DE APRESENTAÇÃO</dd>
+        </dt>
+        <dt>Capitulo12
+            <dd>PITCH</dd>
+        </dt>
+        <dt>Capitulo13
+            <dd>GRAMÁTICA NORMATIVA APLICADA À LEITURA E PRODUÇÃO TEXTUAL</dd>
+        </dt>
+        </div>
+        <div class="chat" style="display: none;">
+            <p> ChatBot Level AI </p>
+            <button>&otimes;</button>
+            <div class="message-container" id="chat_container">
+                <span class="chatbot_message">Olá, em que posso ajudar?</span>
+            </div>
+            <div class="message-input">
+                <input onkeypress="return sendMessage(event)" id="user_message" type="text" placeholder="  ----- Olá digite aqui sua pergunta -----">
+                <span class="message-input-button-scan">
+                        <div>
+                                <input class="inputlay" id="botaoenviar" type="image" src="img2semestre/enter2.png" onclick="enviar()" width="24" height="32">
+                                <input class="gravar" id="gravarenviar" type="image" src="img2semestre/microfone2.png"onclick="enviargravacao()" width="24" height="32">
+                                <input class="parar" id="enviargravacao" type="image" src="img2semestre/stop2.png"  onclick="gravar()" width="24" height="32" style="display:none">
+                            </div>
+            </div>
+        </div>
+        <div class="rotate" >
+            <img src="img2semestre/chatbot .png" class="chatbot-img" alt="chatbot icon">
+        </div>
+        <script type="text/javascript">
+            var button = document.querySelector(".chat button");
+            var content = document.querySelector(".rotate");
+            var chat = document.getElementsByClassName("chat")[0];
+            
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+                content.style.display = "block";
+                chat.style.display = "none";
+            })
+            content.addEventListener("click", function(event) {
+                event.preventDefault();
+                content.style.display = "none";
+                chat.style.display = "block";
+            })
+    
+        </script>
+
+    </main>
+    <footer>
+        <div id="endereco">
+            Av. Paulista, 1000, São Paulo <br>
+            São Paulo  - SP <br>
+            Tel: 11 - 9 6562-5213 | 11 - 9 6562-5235 <br>
+            E-Mail: contatojava@coffee.com
+        </div>
+        <div>
+             <nav id="RedeSocialInferior">
+                 <ul>
+                    <li><a href="http://www.youtube.com"><img src="../img/youtube.png" alt="clique para acessar youtube"></a></li>
+                 </ul>
+             </nav>
+        </div>
+        
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

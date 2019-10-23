@@ -1,0 +1,81 @@
+body{
+  background-image: url("img2semestre/login.png");
+  background-repeat: no-repeat;
+}
+.form_page{
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.form_page form{
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px 0;
+  width: 100%;
+}
+#close_form{
+  color: #640046;
+cursor: pointer;
+  font-weight: bold;
+  left: calc(50% + 140px);
+  position: relative;
+  top: calc(50% - 270px);
+  z-index: 102;
+}
+.form_page label, .form_page input, .form_page button{
+  font-weight: bold;
+  height: 30px;
+  width: 180px;
+}
+.form_page label{
+  color: #640046;
+  display: block;
+  height: 20px;
+  text-transform: uppercase;
+}
+.form_page .float_input{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.form_page .anchor{
+  position: relative;
+}
+.form_page button{
+  background: #640046;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.form_page input{
+  text-align: center;
+}
+.form_page .grupo{
+  margin-bottom: 15px;
+}
+.form_page .new_account{
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.form_page.account{
+  padding: 20px 0;
+}
+
+.form_page.account form{
+  opacity: 0;
+  height: 0;
+  transition: ease-out opacity 200ms width 0s;
+  width: 0;
+}
+.form_page.account form.activate{
+  opacity: 1;
+  height: auto;
+  width: 100%;
+}
