@@ -1,6 +1,7 @@
 # LevelAI
 
 O propósito do projeto é desenvolver um chatbot, com a possibilidade de interação por voz, que desempenharia o papel de um assistente virtual, um “professor assistente”. O assistente auxiliaria o aluno no processo de aprendizagem, tirando suas dúvidas. Com o intuito de facilitar o aprendizado, o chatbot deve se assemelhar ao conteúdo do software já existentes evitando ao máximo impactar negativamente o fluxo do sistema. De igual importância, devemos manter uma interface voltado aos alunos e que seja de fácil entendimento.
+#### O chatbot está implementado na página da disciplina "Algoritmos" (algoritmos.html).
 
 ### Tecnologia utilizadas:
 * JSP
