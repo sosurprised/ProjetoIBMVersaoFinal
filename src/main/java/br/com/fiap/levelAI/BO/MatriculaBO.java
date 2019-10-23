@@ -2,6 +2,7 @@ package br.com.fiap.levelAI.BO;
 
 import br.com.fiap.levelAI.DAO.MatriculaDAO;
 import br.com.fiap.levelAI.beans.Matricula;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.excecao.InvalidValue;
 
 public class MatriculaBO {
@@ -33,7 +34,7 @@ public class MatriculaBO {
 	        catch (InvalidValue i) {
 	            System.out.println(i.getMessage());
 	        } finally {
-	            dao.fechar();
+				Conexao.fechar();
 	        }
 	  }
 }

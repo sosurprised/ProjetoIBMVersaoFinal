@@ -2,6 +2,7 @@ package br.com.fiap.levelAI.BO;
 
 import br.com.fiap.levelAI.DAO.AlunoDAO;
 import br.com.fiap.levelAI.beans.Aluno;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.excecao.InvalidValue;
 
 public class AlunoBO {
@@ -46,7 +47,7 @@ public void novoAluno(Aluno objAluno) throws Exception {
         } catch (InvalidValue i) {
             System.out.println(i.getMessage());
         } finally {
-            dao.fechar();
+			Conexao.fechar();
         }
     }
 }

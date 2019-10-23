@@ -2,6 +2,7 @@ package br.com.fiap.levelAI.BO;
 
 import br.com.fiap.levelAI.DAO.AdminDAO;
 import br.com.fiap.levelAI.beans.Admin;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.excecao.InvalidValue;
 
 public class AdminBO {
@@ -34,7 +35,7 @@ public class AdminBO {
         } catch (InvalidValue i) {
             System.out.println(i.getMessage());
         } finally {
-            dao.fechar();
+			Conexao.fechar();
 	    }
 	}
 }
