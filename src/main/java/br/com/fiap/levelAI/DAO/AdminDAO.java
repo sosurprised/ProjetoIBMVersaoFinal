@@ -91,7 +91,7 @@ public class AdminDAO {
 		int executeUpdate = 0;
 		int codigo = admin.getCodigo();
 		try {
-			stmt = con.prepareStatement("update t_sd_admin set nm_nome=?, ds_email=?, ds_senha=? where cd_aluno=?");
+			stmt = con.prepareStatement("update t_sd_admin set nm_admin=?, ds_email=?, ds_senha=? where cd_admin=?");
 
 			stmt.setString(1, admin.getNome());
 			stmt.setString(2, admin.getEmail());
