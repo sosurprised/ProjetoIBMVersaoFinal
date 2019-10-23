@@ -18,18 +18,7 @@ function createFirstBotMessage(){
 	scrollDivDown(chat);
 }
 
-/*function toggleClass(){
-    var iframe_content = document.querySelector(".iframe_wrapper");
-    if(iframe_content != null){
-	    iframe_content.classList.add("activate");
-	    iframe_content.addEventListener("click", function(e){
-	        iframe_content.classList.remove("activate");
-	        createFirstBotMessage();
-	        
-	    });    	
-    }
-}
-*/
+
 function scrollDivDown(div) {
 	for (var i = 0; i < div.offsetHeight; i++) {
 		div.scrollTop++;
@@ -108,8 +97,8 @@ btnRecord.addEventListener("click", function(event) {
 			video : false
 	}
 	
-	btnRecord.disabled = true;
-	btnStop.disabled = false;
+	btnRecord.style.display = "none";
+	btnStop.style.display = "block";
 	
 	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
 		audioContext = new AudioContext;
@@ -121,16 +110,16 @@ btnRecord.addEventListener("click", function(event) {
 		rec.record();
 	}).catch(function(err){
 		console.log(err);
-		btnRecord.disabled = false;
-		btnStop.disabled = true;
+		btnRecord.style.display = "block";
+		btnStop.style.display = "none";	
 	});
 });
 
 
 btnStop.addEventListener("click", function(event) {
 	event.preventDefault();
-	btnRecord.disabled = false;
-	btnStop.disabled = true;	
+	btnRecord.style.display = "block";
+	btnStop.style.display = "none";	
 	rec.stop();
 	gumStream.getAudioTracks()[0].stop();
 	rec.exportWAV(generateBlob);
@@ -140,44 +129,8 @@ function generateBlob(blob) {
 	createAudioElement(blob);
 	sendBlobToText(blob);
 }
-/*
-function gravar() {
-	var btnRecord = document.querySelector("#recordButton");
-	var btnStop = document.querySelector("#stopButton");
-	btnRecord.style.display = "none";
-	btnStop.style.display = "block";
-	constraints = {
-			audio : true,
-			video : false
-	}	
-	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-	audioContext = new AudioContext;
-	gumStream = stream;
-	rec = new Recorder(input, {
-		numChannels : 1
-	});
-	rec.record();
-	})
-}
 
-function pararEnviar() {
-	var btnRecord = document.querySelector("#recordButton");
-	var btnStop = document.querySelector("#stopButton");
-	btnRecord.style.display = "block";
-	btnStop.style.display = "none";
-	rec.stop();
-	gumStream.getAudioTracks()[0].stop();
-	rec.exportWAV(generateBlob);
-	var question = document.querySelector("#question");
-	sendMessageToVoice(question.value);
-	question.value = "";
-}
 
-function generateBlob(blob) {
-	createAudioElement(blob);
-	sendBlobToText(blob);
-}
-*/
 function sendBlobToText(blob) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "stt", true);
@@ -186,8 +139,8 @@ function sendBlobToText(blob) {
 		if(xhr.status == 200) {
 			// Deu bom
 			var resposta = JSON.parse(xhr.responseText);
-			resposta[0].alternatives.forEach(function(tran) {
-				createMessage(tran.tran, "me");
+			resposta[0].alternatives.forEach(function(transcription) {
+				createMessage(transcription.transcription, "me");
 			});
 		} else {
 			// Deu ruim
