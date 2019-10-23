@@ -234,12 +234,12 @@ main #videos{
 .chat {
     display: inline-block;
     border-radius: 5px;
-    width: 275px;
-    height: 330px;
+    width: 380px;
+    height: 350px;
     background-color:#007373;
     position: fixed;
     right: 2%;
-    bottom: 2%;   
+    bottom: 2%;  
 }
 
 /*
