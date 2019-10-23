@@ -2,6 +2,7 @@ package br.com.fiap.levelAI.BO;
 
 import br.com.fiap.levelAI.DAO.DisciplinaDAO;
 import br.com.fiap.levelAI.beans.Disciplina;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.excecao.InvalidValue;
 
 public class DisciplinaBO {
@@ -41,7 +42,7 @@ public class DisciplinaBO {
         } catch (InvalidValue i) {
             System.out.println(i.getMessage());
         } finally {
-            dao.fechar();
+			Conexao.fechar();
         }
 
     }

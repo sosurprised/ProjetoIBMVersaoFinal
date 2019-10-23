@@ -89,7 +89,6 @@ public class AdminDAO {
 	 */
 	public int updateAdmin(Admin admin) throws Exception {
 		int executeUpdate = 0;
-		int codigo = admin.getCodigo();
 		try {
 			stmt = con.prepareStatement("update t_sd_admin set nm_admin=?, ds_email=?, ds_senha=? where cd_admin=?");
 

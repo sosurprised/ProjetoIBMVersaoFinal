@@ -2,9 +2,10 @@ package br.com.fiap.levelAI.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Date;
 
-import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.beans.Matricula;
+import br.com.fiap.levelAI.conexao.Conexao;
 
 public class MatriculaDAO {
 	private Connection con;
@@ -27,7 +28,7 @@ public class MatriculaDAO {
 					rs.getInt("cd_matricula"),
 					daoD.getDisciplina(rs.getInt("cd_disciplina")),
 					daoA.getAluno(rs.getInt("cd_aluno")),
-					rs.getString("dt_matricula")
+					rs.getDate("dt_matricula")
 					);
 		}else {
 			return new Matricula();
@@ -52,8 +53,7 @@ public class MatriculaDAO {
 		stmt.setInt(1, obj.getCodigo());
 		stmt.setInt(2, obj.getDisciplina().getCodigo());
 		stmt.setInt(3, obj.getAluno().getCodigo());
-		stmt.setString(4, obj.getDataMatricula());
-		return stmt.executeUpdate();
+		stmt.setDate(4, new Date(obj.getDataMatricula().getTime()));		return stmt.executeUpdate();
 	}
 	
 	public void fechar() throws Exception {
