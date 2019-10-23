@@ -1,5 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
 
+import java.util.Date;
+
 import br.com.fiap.levelAI.DAO.AlunoDAO;
 import br.com.fiap.levelAI.beans.Aluno;
 
@@ -13,7 +15,7 @@ public class TesteAddAluno {
 			alu.setNome("Matem�tica");
 			alu.setEndereco("24");
 			alu.setTelefone("11946079854");
-			alu.setDataNascimento("12/3/67");
+			alu.setDataNascimento(new Date(12/3/67));
 			alu.setEmail("gg@gg.com.br");
 			alu.setSenha("123456");
 			if (dao.addAluno(alu) == 0) {

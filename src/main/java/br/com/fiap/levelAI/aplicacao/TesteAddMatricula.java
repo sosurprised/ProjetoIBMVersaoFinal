@@ -1,9 +1,11 @@
 package br.com.fiap.levelAI.aplicacao;
 
-import br.com.fiap.levelAI.beans.Matricula;
+import java.util.Date;
+
 import br.com.fiap.levelAI.DAO.AlunoDAO;
 import br.com.fiap.levelAI.DAO.DisciplinaDAO;
 import br.com.fiap.levelAI.DAO.MatriculaDAO;
+import br.com.fiap.levelAI.beans.Matricula;
 
 
 public class TesteAddMatricula {
@@ -17,7 +19,7 @@ public class TesteAddMatricula {
 			mat.setCodigo(9);
 			mat.setDisciplina(d.getDisciplina(50));
 			mat.setAluno(a.getAluno(11));
-			mat.setDataMatricula("11/2/2019");
+			mat.setDataMatricula(new Date(11/2/2019));
 			if (dao.addMatricula(mat) == 0) {
 				System.out.println("N�o cadastrou");
 			}else {

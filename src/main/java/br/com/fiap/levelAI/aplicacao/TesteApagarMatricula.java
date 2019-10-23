@@ -1,6 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
 
 import br.com.fiap.levelAI.beans.Matricula;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.MatriculaDAO;
 
 public class TesteApagarMatricula {
@@ -14,12 +15,12 @@ public class TesteApagarMatricula {
 			System.out.println("Disciplina.............:" + a.getDisciplina());
 			System.out.println("Aluno..................:" + a.getAluno());
 			System.out.println("Data de Matricula......:" + a.getDataMatricula());
-			System.out.println(dao.apagarMatricula(9));
+			System.out.println(dao.deleteMatricula(9));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

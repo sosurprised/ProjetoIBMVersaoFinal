@@ -1,12 +1,13 @@
 package br.com.fiap.levelAI.beans;
 
+import java.util.Date;
 
 public class Aluno {
 	private int codigo;
 	private String nome;
 	private String endereco;
 	private String telefone;
-	private String dataNascimento;
+	private Date dataNascimento;
 	private String email;
 	private String senha;
 
@@ -14,7 +15,7 @@ public class Aluno {
 		
 	}
 	
-	public Aluno(int codigo, String nome, String endereco, String telefone, String dataNascimento, String email,
+	public Aluno(int codigo, String nome, String endereco, String telefone, Date dataNascimento, String email,
 			String senha) {
 		super();
 		this.codigo = codigo;
@@ -58,11 +59,11 @@ public class Aluno {
 		this.telefone = telefone;
 	}
 
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

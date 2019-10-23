@@ -1,16 +1,18 @@
 package br.com.fiap.levelAI.beans;
 
+import java.util.Date;
+
 public class Matricula {
 
     private int codigo;
     private Disciplina disciplina;
     private Aluno aluno;
-    private String dataMatricula;
+    private Date dataMatricula;
     
     public Matricula() {
     	
     }
-    public Matricula(int codigo, Disciplina disciplina, Aluno aluno, String dataMatricula) {
+    public Matricula(int codigo, Disciplina disciplina, Aluno aluno, Date dataMatricula) {
 		this.codigo = codigo;
 		this.disciplina= disciplina;
 		this.aluno = aluno;
@@ -34,10 +36,10 @@ public class Matricula {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-	public String getDataMatricula() {
+	public Date getDataMatricula() {
 		return dataMatricula;
 	}
-	public void setDataMatricula(String dataMatricula) {
+	public void setDataMatricula(Date dataMatricula) {
 		this.dataMatricula = dataMatricula;
 	}
 

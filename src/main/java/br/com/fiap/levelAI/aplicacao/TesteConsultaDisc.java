@@ -1,5 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
+
 import br.com.fiap.levelAI.beans.Disciplina;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.DisciplinaDAO;
 
 public class TesteConsultaDisc {
@@ -17,17 +19,15 @@ public class TesteConsultaDisc {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}			
-						
+			}
+
+		}
+
 	}
 
 }
-
-}
-
-

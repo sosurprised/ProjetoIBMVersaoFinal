@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.fiap.levelAI.BO.AlunoBO;
 import br.com.fiap.levelAI.DAO.AlunoDAO;
 
 @WebServlet(urlPatterns = "/LoginServlet")
@@ -31,8 +32,8 @@ public class LoginServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String senha = req.getParameter("senha");		
 		try {
-			AlunoDAO dao = new AlunoDAO();
-			if (dao.getEmailAluno(email, senha).getCodigo()>0) {
+			AlunoBO bo = new AlunoBO();
+			if (bo.validarEmailESenha(email, senha).getCodigo()>0) {
 				resp.sendRedirect("cursos.html");
 			} else {
 				out.print("Email ou login inválidos,  tente de novo");

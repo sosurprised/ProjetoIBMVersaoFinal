@@ -1,6 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
 
 import br.com.fiap.levelAI.beans.Disciplina;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.DisciplinaDAO;
 
 public class TesteApagarDisc {
@@ -16,12 +17,12 @@ public class TesteApagarDisc {
 			System.out.println("Inicio.................:" + a.getInicio());
 			System.out.println("Termino................:" + a.getTermino());
 			System.out.println("Status.................:" + a.getStatus());
-			System.out.println(dao.apagarDisciplina(33));
+			System.out.println(dao.deleteDisciplina(33));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

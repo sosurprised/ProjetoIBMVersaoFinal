@@ -1,5 +1,7 @@
 package br.com.fiap.levelAI.aplicacao;
+
 import br.com.fiap.levelAI.beans.Capitulo;
+import br.com.fiap.levelAI.conexao.Conexao;
 import br.com.fiap.levelAI.DAO.CapituloDAO;
 
 public class TesteConsultarCapitulo {
@@ -16,14 +18,14 @@ public class TesteConsultarCapitulo {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				dao.fechar();	//executa de qualquer modo ent�o se caso nao abrir a conexao, precisamos colocar o try catch			
+				Conexao.fechar();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}			
-						
-	}
+			}
+
+		}
 
 	}
 

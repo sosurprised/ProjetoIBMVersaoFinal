@@ -26,43 +26,32 @@ public class SpeechToTextServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		byte[] buffer = new byte[1024 * 1024];
-		
+
 		InputStream is = req.getInputStream();
 		File tempFile = File.createTempFile("speech-", ".wav");
-		
+
 		try (FileOutputStream os = new FileOutputStream(tempFile)) {
 			int length;
-			while((length = is.read(buffer)) != -1) {
+			while ((length = is.read(buffer)) != -1) {
 				os.write(buffer, 0, length);
 			}
 		}
-		
-		IamOptions options = new IamOptions.Builder()
-				//Colocar a sua APIKEY
-				.apiKey("bL140DnTUZAM6xuym0ERZrzOnW9zC3BNMMLMXT0hixij")
-				.build();
-		
-		SpeechToText service = new SpeechToText(options);
-		
-		RecognizeOptions recognizeOptions = new RecognizeOptions.Builder()
-				.audio(tempFile)
-				.contentType(HttpMediaType.AUDIO_WAV)
-				.model("pt-BR_BroadbandModel")
-				.languageCustomizationId("91f977d7-d099-4310-b12a-8cb9193f71a2")
-				.acousticCustomizationId("5be7a6a4-6bc8-4331-9c39-2d81423957cc")
-				.build();
 
-		
-		SpeechRecognitionResults transcript = service.recognize(recognizeOptions)
-				.execute()
-				.getResult();
-		
+		IamOptions options = new IamOptions.Builder()
+				// Colocar a sua APIKEY
+				.apiKey("bL140DnTUZAM6xuym0ERZrzOnW9zC3BNMMLMXT0hixij").build();
+
+		SpeechToText service = new SpeechToText(options);
+
+		RecognizeOptions recognizeOptions = new RecognizeOptions.Builder().audio(tempFile)
+				.contentType(HttpMediaType.AUDIO_WAV).model("pt-BR_BroadbandModel")
+				.languageCustomizationId("91f977d7-d099-4310-b12a-8cb9193f71a2")
+				.acousticCustomizationId("5be7a6a4-6bc8-4331-9c39-2d81423957cc").build();
+
+		SpeechRecognitionResults transcript = service.recognize(recognizeOptions).execute().getResult();
+
 		resp.setContentType("application/json");
 		resp.getWriter().write(new Gson().toJson(transcript.getResults()));
-	
+
 	}
 }
-
-
-
-

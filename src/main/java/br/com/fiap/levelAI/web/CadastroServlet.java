@@ -2,6 +2,7 @@ package br.com.fiap.levelAI.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +38,7 @@ public class CadastroServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String senha = req.getParameter("senha");
 		AlunoDAO dao;
-		Aluno aluno = new Aluno(codigo, nome, endereco, telefone, dataNascimento, email, senha);
+		Aluno aluno = new Aluno(codigo, nome, endereco, telefone, new Date(dataNascimento), email, senha);
 		try {
 			dao = new AlunoDAO();
 			if(dao.addAluno(aluno)>0) {

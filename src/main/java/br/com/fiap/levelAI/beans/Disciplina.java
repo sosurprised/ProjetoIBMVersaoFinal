@@ -1,19 +1,20 @@
 package br.com.fiap.levelAI.beans;
 
+import java.util.Date;
 
 public class Disciplina {
 	private int codigo;
 	private String nome;
 	private String descricao;
-	private String inicio;
-	private String termino;
-	private String status;
+	private Date inicio;
+	private Date termino;
+	private boolean status;
 	
 	public Disciplina() {
 		
 	}
 
-	public Disciplina(int codigo, String nome, String descricao, String inicio, String termino, String status) {
+	public Disciplina(int codigo, String nome, String descricao, Date inicio, Date termino, boolean status) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -47,27 +48,27 @@ public class Disciplina {
 		this.descricao = descricao;
 	}
 
-	public String getInicio() {
+	public Date getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(String inicio) {
+	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
 
-	public String getTermino() {
+	public Date getTermino() {
 		return termino;
 	}
 
-	public void setTermino(String termino) {
+	public void setTermino(Date termino) {
 		this.termino = termino;
 	}
 
-	public String getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	
