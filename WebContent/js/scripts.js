@@ -13,7 +13,7 @@ var audioContext; // objeto
 
 function createFirstBotMessage(){
 	var chat = document.querySelector("#chat_container");
-	var div = createDiv("Olá, meu nome é LevelAI! Estou aqui para te ajudar a resolver suas dúvudas", "bot");
+	var div = createDiv("Olá, meu nome é LevelAI! Estou aqui para te ajudar a resolver suas dúvidas", "bot");
 	chat.appendChild(div);
 	scrollDivDown(chat);
 }
@@ -44,11 +44,28 @@ function createDiv(text, type) {
 	return div;
 }
 
+function enviarMensagemEnter(e){
+	if(e.keyCode == 13){
+		var mensagem = document.querySelector("#question");
+		if(mensagem.value.length<1){
+		alert("Digite alguma coisa.")	
+		}else{
+			createMessage(mensagem.value, "me");
+			callBot(mensagem.value);
+			mensagem.value = "";	
+		}
+	}
+}
+
 function enviarMensagem(){
 	var mensagem = document.querySelector("#question");
+	if(mensagem.value.length<1){
+		alert("Digite alguma coisa.")	
+	}else{
 	createMessage(mensagem.value, "me");
 	callBot(mensagem.value);
 	mensagem.value = "";
+	}
 }
 
 function createMessage(message, type){
@@ -81,7 +98,49 @@ function callBot(msg) {
 	xhr.send(data);
 }
 
+var btnRecord = document.querySelector("#recordButton");
+var btnStop = document.querySelector("#stopButton");
 
+btnRecord.addEventListener("click", function(event) {
+	event.preventDefault();
+	constraints = {
+			audio : true,
+			video : false
+	}
+	
+	btnRecord.disabled = true;
+	btnStop.disabled = false;
+	
+	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+		audioContext = new AudioContext;
+		gumStream = stream;
+		input = audioContext.createMediaStreamSource(stream);
+		rec = new Recorder(input, {
+			numChannels : 1
+		});
+		rec.record();
+	}).catch(function(err){
+		console.log(err);
+		btnRecord.disabled = false;
+		btnStop.disabled = true;
+	});
+});
+
+
+btnStop.addEventListener("click", function(event) {
+	event.preventDefault();
+	btnRecord.disabled = false;
+	btnStop.disabled = true;	
+	rec.stop();
+	gumStream.getAudioTracks()[0].stop();
+	rec.exportWAV(generateBlob);
+});
+
+function generateBlob(blob) {
+	createAudioElement(blob);
+	sendBlobToText(blob);
+}
+/*
 function gravar() {
 	var btnRecord = document.querySelector("#recordButton");
 	var btnStop = document.querySelector("#stopButton");
@@ -118,7 +177,7 @@ function generateBlob(blob) {
 	createAudioElement(blob);
 	sendBlobToText(blob);
 }
-
+*/
 function sendBlobToText(blob) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "stt", true);
@@ -127,8 +186,8 @@ function sendBlobToText(blob) {
 		if(xhr.status == 200) {
 			// Deu bom
 			var resposta = JSON.parse(xhr.responseText);
-			resposta[0].alternatives.forEach(function(transcript) {
-				createMessage(transcript.transcript, "me");
+			resposta[0].alternatives.forEach(function(tran) {
+				createMessage(tran.tran, "me");
 			});
 		} else {
 			// Deu ruim
@@ -169,17 +228,7 @@ function createAudioElement(blob) {
 	audio.src = url;
 	
 	div.appendChild(audio);
-	var chat = document.querySelector(".chat-container");
+	var chat = document.querySelector("#chat_container");
 	chat.appendChild(div);
 	scrollDivDown(chat);
 }
-
-
-
-
-
-
-
-
-
-

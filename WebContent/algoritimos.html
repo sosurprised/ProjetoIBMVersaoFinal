@@ -52,22 +52,22 @@
         </div>
         <div class="chat" style="display: none;">
             <p> ChatBot Level AI </p>
-            <button>&otimes;</button>
+            <button>⊗</button>
             <div class="message-container" id="chat_container">
             
             </div>
             <div class="message-input">
-                <input id="question" type="text" name="question" placeholder="  ----- Olá digite aqui sua pergunta -----"/>
-                <input class="inputlay" id="user_message" type="image" src="img2semestre/enter2.png" onclick="enviarMensagem()" width="24" height="32">
-                <input class="gravar" id="recordButton" type="image" src="img2semestre/microfone2.png" onclick="gravar()" width="24" height="32"/>
-                <input class="parar" id="stopButton" type="image" src="img2semestre/stop2.png" onclick="pararEnviar()" width="24" height="32" style="display:none"/>
+                <input id="question" onkeypress = "return enviarMensagemEnter(event)" type="text" name="question" placeholder="  ----- Olá digite aqui sua pergunta -----"/>
+                <button class="inputlay" id="user_message" alt = "Enviar mensagem" src="img2semestre/enter2.png" onclick="enviarMensagem()" width="24" height="32">Send</button>
+                <button class="gravar" id="recordButton" alt = "Começar a gravar"  src="img2semestre/microfone2.png" onclick="gravar()" width="24" height="32">Record</button>
+                <button class="parar" id="stopButton" alt = "Terminar de gravar"  src="img2semestre/stop2.png" onclick="pararEnviar()" width="24" height="32" style="display:none">Stop</button>
                 <span class="message-input-button-scan"></span>
             </div>
         </div>
         <div class="rotate" >
             <img src="img2semestre/chatbot .png" class="chatbot-img" alt="chatbot icon">
         </div>
-        <script type="text/javascript">
+        < type="text/java">
             var button = document.querySelector(".chat button");
             var content = document.querySelector(".rotate");
             var chat = document.getElementsByClassName("chat")[0];
@@ -84,7 +84,7 @@
                 content.style.display = "block";
                 chat.style.display = "none";
             })
-        </script>
+        </>
 
     </main>
     <footer>
@@ -103,8 +103,8 @@
         </div>
         
     </footer>
-    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-    <script src="js/scripts.js"></script>
+    < src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></>
+    < src="js/s.js"></>
 
 
 </body>
